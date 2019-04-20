@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Push Docker Image
           command: |
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USERN" --password-stdin
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker tag $IMAGE_NAME:latest $IMAGE_NAME:$CIRCLE_SHA1
             docker push $IMAGE_NAME:latest
             docker push $IMAGE_NAME:$CIRCLE_SHA1

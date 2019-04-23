@@ -14,8 +14,6 @@ envsubst < ./.circleci/kube/deployment.yml.template > ./.circleci/kube/deploymen
 
 echo "$KUBERNETES_KUBECONFIG" | base64 --decode > kubeconfig.yml
 
-cat kubeconfig.yml
-
 ./kubectl --kubeconfig=kubeconfig.yml get nodes
 
 ./kubectl --kubeconfig=kubeconfig.yml apply -f ./.circleci/kube
